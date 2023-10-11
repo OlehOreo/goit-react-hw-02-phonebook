@@ -1,6 +1,5 @@
 import { ContactsItem } from 'components/ContactsItem/ContactsItem';
 import { List } from './ContactList.styled';
-import { Message } from 'components/Notiflix/Message';
 
 export const ContactList = ({ contacts, OnDeleteContact }) => (
   <List>
