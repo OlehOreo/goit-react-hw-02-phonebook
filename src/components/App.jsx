@@ -47,6 +47,7 @@ export class App extends Component {
   };
 
   searchFilter = newFilter => {
+    console.log(newFilter.length);
     this.setState({
       filter: newFilter,
     });
@@ -69,9 +70,6 @@ export class App extends Component {
           number.replace(/\D/g, '').includes(filter)
         );
       }
-      if (contacts.length === 0) {
-        return <Message />;
-      }
 
       return contacts;
     });
@@ -86,13 +84,19 @@ export class App extends Component {
           filter={this.state.filter}
           onSearchContact={this.searchFilter}
         />
+
         {contacts.length === 0 ? (
-          <Message />
+          <Message info={'No contacts add a contact'} />
         ) : (
-          <ContactList
-            contacts={filterContact}
-            OnDeleteContact={this.deleteContact}
-          />
+          <>
+            {filterContact.length === 0 && (
+              <Message info={'contact not found'} contact={filter} />
+            )}
+            <ContactList
+              contacts={filterContact}
+              OnDeleteContact={this.deleteContact}
+            />
+          </>
         )}
       </Section>
     );

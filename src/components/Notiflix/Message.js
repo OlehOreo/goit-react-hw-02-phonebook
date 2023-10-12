@@ -1,9 +1,12 @@
-import { Heading } from './Message.styled';
+import { Heading, ContactSearch } from './Message.styled';
 
-export const Message = () => {
+export const Message = ({ info, contact }) => {
   return (
     <>
-      <Heading>No contacts add a contact</Heading>
+      <Heading>
+        <ContactSearch>{contact}</ContactSearch>
+        {info}
+      </Heading>
     </>
   );
 };

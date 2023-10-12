@@ -8,3 +8,8 @@ export const Heading = styled.h3`
   width: 630px;
   color: ${p => p.theme.colors.white};
 `;
+
+export const ContactSearch = styled.span`
+  color: #babffff5;
+  margin-right: 10px;
+`;
